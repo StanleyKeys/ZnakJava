@@ -1,6 +1,5 @@
 package VeterinaryClinicSystem;
 
-import javax.xml.crypto.Data;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,7 +38,7 @@ public class VeterinaryClinic {
         cat3.masterSurname = "Путин";
         cat3.masterName = "Владимир";
         cat3.masterEmail = "президентвсеяруси.рф";
-        cat3.masterPhoneNumber = 2002316;           // 8-800-200-23-16 телефон Кремля :)
+        cat3.masterPhoneNumber = 2002316;
 
         //"Создайте 2 или более котов с одинаковыми параметрами в полях. Поместите их во множество. Убедитесь, что все они сохранились во множество."
         CatInfo catTest1 = new CatInfo();
