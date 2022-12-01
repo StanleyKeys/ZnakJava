@@ -13,7 +13,7 @@ public class SimplyPath {
         int dirMove = 0;
         for (int i = 0; i < dir.length; i++) {
             if (dir[i].equals(".") || dir[i].equals("")) {
-            }
+             }
             else if (dir[i].equals("..")) {
                 if (dirMove > 0) dirMove--;
             } else {
