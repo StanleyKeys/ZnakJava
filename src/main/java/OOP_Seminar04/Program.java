@@ -23,9 +23,9 @@ public class Program {
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
-        Document xDoc = db.parse(new FileInputStream("F:\\GeekBrains\\IdeaProjects\\ZnakJava\\src\\main\\java\\OOP_Seminar04\\map.xml"));
-        xDoc.normalize();
-        NodeList nList = xDoc.getElementsByTagName("Size");
+        Document mapDocument = db.parse(new FileInputStream("F:\\GeekBrains\\IdeaProjects\\ZnakJava\\src\\main\\java\\OOP_Seminar04\\map.xml"));
+        mapDocument.normalize();
+        NodeList nList = mapDocument.getElementsByTagName("Size");
 
         Node node = nList.item(0);
         Element element = (Element) node;
@@ -34,7 +34,7 @@ public class Program {
         int width = Integer.parseInt(element.getElementsByTagName("Width").item(0).getTextContent());
         WaveAlgorithm Path = new WaveAlgorithm(width, height);
 
-        nList = xDoc.getElementsByTagName("Block");
+        nList = mapDocument.getElementsByTagName("Block");
         for (int i = 0; i < nList.getLength(); i++) {
             node = nList.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
