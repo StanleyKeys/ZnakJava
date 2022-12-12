@@ -44,7 +44,6 @@ public class Program {
                 Path.block(x, y);
             }
         }
-
         Path.traceOut();
         System.out.println();
 

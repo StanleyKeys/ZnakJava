@@ -8,7 +8,7 @@ public class WaveAlgorithm {
     int height;
     int wall = 88;
     int[][] map;
-    List<Point> wave = new ArrayList<Point>();
+    List<Point> wave = new ArrayList<>();
 
     public WaveAlgorithm(int width, int height) {
         this.width = width;
@@ -42,7 +42,7 @@ public class WaveAlgorithm {
         }
 
         int[][] cloneMap = clone(map);
-        List<Point> oldWave = new ArrayList<Point>();
+        List<Point> oldWave = new ArrayList<>();
         oldWave.add(new Point(nx, ny));
         int nstep = 0;
         map[ny][nx] = nstep;
@@ -64,9 +64,9 @@ public class WaveAlgorithm {
                     }
                 }
             }
-            oldWave = new ArrayList<Point>(wave);
+            oldWave = new ArrayList<>(wave);
         }
-        boolean flag = true;
+        boolean flag;
         wave.clear();
         wave.add(new Point(x, y));
         while (map[y][x] != 0) {
@@ -94,7 +94,7 @@ public class WaveAlgorithm {
         }
 }
 
-private class Point {
+private static class Point {
         public Point(int x, int y) {
             this.x = x;
             this.y = y;
@@ -106,7 +106,7 @@ private class Point {
 
     public void traceOut()
     {
-        String m = null;
+        StringBuilder m;
         System.out.print("   ");
         for (int i = 0; i < height; i++)
         {
@@ -114,19 +114,17 @@ private class Point {
         }
         System.out.println();
         for (int i = 0; i < width; i++) {
-            m = i > 9 ? i + " " : i + "  ";
+            m = new StringBuilder(i > 9 ? i + " " : i + "  ");
             for (int j = 0; j < height; j++) {
-                m += map[i][j] > 9 || map[i][j] < 0 ? map[i][j] + " " : map[i][j] + "  ";
+                m.append(map[i][j] > 9 || map[i][j] < 0 ? map[i][j] + " " : map[i][j] + "  ");
             }
             System.out.println(m);
         }
-
     }
     private int[][] clone(int[][] map) {
         int[][] cloneMap = new int[width][height];
         for (int i = 0; i < map.length; i++)
-            for (int j = 0; j < map[i].length; j++)
-                cloneMap[i][j] = map[i][j];
+            System.arraycopy(map[i], 0, cloneMap[i], 0, map[i].length);
         return cloneMap;
     }
 }
