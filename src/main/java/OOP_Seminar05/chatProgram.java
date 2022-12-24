@@ -2,19 +2,17 @@ package OOP_Seminar05;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 import java.util.Scanner;
 
 public class chatProgram {
-
+    public static PostPigeon pp = new PostPigeon();
     public static void main(String[] args) {
         int count = 0;
-        PostPigeon pp = new PostPigeon();
-        User u1 = new User("Ivan", pp);
-        User u2 = new User("Петр", pp);
-        User u3 = new User("Анна", pp);
-        pp.appendClient(u1);
-        pp.appendClient(u2);
-        pp.appendClient(u3);
+
+        User u1 = createUser();
+        User u3 = createUser();
+
         while (count < 9) {
             u1.sendMsg();
             if (Objects.equals(User.exitMsg, "exit")) {
@@ -28,16 +26,22 @@ public class chatProgram {
         }
     }
 
+    public static User createUser () {                  // метод создания пользователей :)
+        User u = UserBuilder
+                .getInstance()
+                .setName()
+                .getChatRoom(pp)
+                .build();
+        pp.appendClient(u);
+        return u;
+    }
+
 }
 
 class User {
     String name;
-    private final Chat chatroom;
+    public Chat chatroom;
     public static String exitMsg;
-    public User (String name, Chat chatroom) {
-        this.name = name;
-        this.chatroom = chatroom;
-    }
 
     public void sendMsg() {
         System.out.print(">>> : ");
@@ -45,6 +49,40 @@ class User {
         String msg = scan.nextLine();
         exitMsg = msg;
         chatroom.sendMessage(msg, this);
+    }
+}
+
+class UserBuilder {                                     // генератор пользователей.
+    private static UserBuilder instance;
+    User obj;
+    String[] nameList = new String[] {"Ivan", "Mariya", "Yuliya", "Stanislav", "Sergey", "Anna", "Tatyana", "Olga", "Petr"};   //список случайных имен
+
+    public int getRandom () {                                       // генератор чисел.
+        Random random = new Random();
+        return random.nextInt(nameList.length - 1);
+    }
+
+    public static UserBuilder getInstance() {
+        if (instance == null) {
+            instance = new UserBuilder();
+        }
+        instance.obj = new User();
+        return instance;
+    }
+
+    public UserBuilder setName() {                      // создание имени пользователя через генератор имен и список
+        int r = getRandom();
+        obj.name = nameList[r];
+        return this;
+    }
+
+    public UserBuilder getChatRoom(Chat chatRoom) {
+        obj.chatroom = chatRoom;
+        return this;
+    }
+
+    public User build() {                                   // создание пользователя.
+        return obj;
     }
 }
 interface Chat {
