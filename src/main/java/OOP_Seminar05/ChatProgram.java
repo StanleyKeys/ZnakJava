@@ -5,8 +5,9 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
-public class chatProgram {
+public class ChatProgram {
     public static PostPigeon pp = new PostPigeon();
+
     public static void main(String[] args) {
         int count = 0;
 
@@ -26,7 +27,7 @@ public class chatProgram {
         }
     }
 
-    public static User createUser () {                  // метод создания пользователей :)
+    public static User createUser() {                  // метод создания пользователей :)
         User u = UserBuilder
                 .getInstance()
                 .setName()
@@ -55,9 +56,9 @@ class User {
 class UserBuilder {                                     // генератор пользователей.
     private static UserBuilder instance;
     User obj;
-    String[] nameList = new String[] {"Ivan", "Mariya", "Yuliya", "Stanislav", "Sergey", "Anna", "Tatyana", "Olga", "Petr"};   //список случайных имен
+    String[] nameList = new String[]{"Ivan", "Mariya", "Yuliya", "Stanislav", "Sergey", "Anna", "Tatyana", "Olga", "Petr"};   //список случайных имен
 
-    public int getRandom () {                                       // генератор чисел.
+    public int getRandom() {                                       // генератор чисел.
         Random random = new Random();
         return random.nextInt(nameList.length - 1);
     }
@@ -85,8 +86,10 @@ class UserBuilder {                                     // генератор п
         return obj;
     }
 }
+
 interface Chat {
     void sendMessage(String msg, User user);
+
     void appendClient(User user);
 }
 
