@@ -4,6 +4,7 @@
 США
 120
 Warner Bros.
+https://bitru.org/details.php?id=513664
 
 Джон Уик
 2014
@@ -11,6 +12,7 @@ Warner Bros.
 Сша
 101
 West
+https://bitru.org/details.php?id=341706
 
 Стражи Галактики
 2014
@@ -18,4 +20,21 @@ West
 США
 121
 Marvel
+https://bitru.org/details.php?id=130434
+
+Стражи Галактики 2
+2018
+Боевик
+null
+0
+null
+https://bitru.org/details.php?id=240177
+
+Джон Уик
+2014
+Боевик
+Сша
+101
+West
+https://bitru.org/details.php?id=341706
 
