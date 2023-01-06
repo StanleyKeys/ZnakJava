@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 class SearchSystem {
     ArrayList<String> list = new ArrayList<>();
-
+    AppMenu am = new AppMenu();
     String line;
     File file = new File("MovieDB.txt");
     FileReader fr;
@@ -130,7 +130,6 @@ class SearchSystem {
         System.out.println(result);
         System.out.println("\n1. Повторить поиск\n2. Главное меню\n3. Выход");
         String userInput = scanningMethod();
-        AppMenu am = new AppMenu();
 
         switch (userInput) {
             case ("1"):
