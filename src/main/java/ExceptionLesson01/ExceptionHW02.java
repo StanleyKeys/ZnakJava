@@ -5,7 +5,6 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ExceptionHW02 {
-
     public static void main(String[] args) {
         System.out.println("Input 1 Array length: ");
         int[] firstArray = new int[getLength()];
@@ -39,7 +38,6 @@ public class ExceptionHW02 {
         return result;
     }
 
-
     public static void fillArray(int[] array) {                                         // Заполнение массива.
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (1 + Math.random() * 10);
@@ -54,13 +52,10 @@ public class ExceptionHW02 {
         return thirdArray;
     }
 
-
     public static void fillManualArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             array[i] = inputtingNumbers();
         }
-
-
     }
 
     public static void chooseResult(int[] firstArray, int[] secondArray) {

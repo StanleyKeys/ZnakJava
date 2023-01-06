@@ -5,9 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ExceptionHW01 {
-
     public static void main(String[] args) {
-
         System.out.println("Input 1 Array length: ");
         int[] firstArray = new int[getLength()];
         System.out.println("Input 2 Array length: ");
