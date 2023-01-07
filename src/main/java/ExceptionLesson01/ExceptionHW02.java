@@ -70,6 +70,7 @@ public class ExceptionHW02 {
             fillManualArray(secondArray);
         } else {
             System.out.println("Нужно ввести номер пункта меню.");
+            System.out.println();
             chooseResult(firstArray, secondArray);
         }
     }
